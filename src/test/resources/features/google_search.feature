@@ -1,4 +1,4 @@
-@google_search
+@google_search @smoke
 Feature: Google Search Functionality Title Validation
   User Story: As a user, when I am on the Google search page
   I should be able to search whatever I want and see the relevant result
