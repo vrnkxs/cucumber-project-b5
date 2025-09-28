@@ -97,7 +97,6 @@ public class ProductStepDefs {
                     //e.printStackTrace();
                 }
             }
-
             //System.out.println(product);
             //System.out.println(expectedPrice);
         }

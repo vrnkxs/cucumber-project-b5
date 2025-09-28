@@ -5,7 +5,6 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.safari.SafariDriver;
-
 import java.time.Duration;
 
 public class Driver {
@@ -39,6 +38,11 @@ public class Driver {
                 }
                 case "firefox" -> driverPool.set(new FirefoxDriver());
                 case "safari" -> driverPool.set(new SafariDriver());
+                case "headless" -> {
+                    options.addArguments("--disable-blink-features=AutomationControlled");
+                    options.addArguments("--headless");
+                    driverPool.set(new ChromeDriver(options));
+                }
             }
 
             driverPool.get().manage().window().maximize();
