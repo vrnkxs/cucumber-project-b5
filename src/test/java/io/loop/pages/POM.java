@@ -8,6 +8,9 @@ public class POM {
     private GoogleSearchPage googleSearchPage;
     private HomePage homePage;
     private ProductPage productPage;
+    private ReceivedDocsPage receivedDocsPage;
+    private LeftNavigatePage leftNavigatePage;
+    private MyUploadsPage myUploadsPage;
 
     public LoginPage getLoginPage() {
         if(loginPage == null) {
@@ -35,5 +38,26 @@ public class POM {
             productPage = new ProductPage();
         }
         return productPage;
+    }
+
+    public ReceivedDocsPage getReceivedDocsPage() {
+        if(receivedDocsPage == null) {
+            receivedDocsPage = new ReceivedDocsPage();
+        }
+        return receivedDocsPage;
+    }
+
+    public LeftNavigatePage getLeftNavigatePage() {
+        if(leftNavigatePage == null) {
+            leftNavigatePage = new LeftNavigatePage();
+        }
+        return leftNavigatePage;
+    }
+
+    public MyUploadsPage getMyUploadsPage() {
+        if(myUploadsPage == null) {
+            myUploadsPage = new MyUploadsPage();
+        }
+        return myUploadsPage;
     }
 }

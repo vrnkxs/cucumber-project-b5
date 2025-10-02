@@ -80,7 +80,7 @@ public class BrowserUtils {
      */
     public static void loopLinkClick(String nameOfPage){
         WebElement element = Driver.getDriver().findElement(By.xpath("//a[.='" + nameOfPage + "']"));
-        WebDriverWait wait = new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(10));
+        WebDriverWait wait = new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(DocuportConstance.LARGE));
         wait.until(ExpectedConditions.elementToBeClickable(element)).click();
     }
 
