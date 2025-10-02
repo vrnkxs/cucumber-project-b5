@@ -6,6 +6,7 @@ import io.cucumber.java.en.When;
 import io.loop.pages.GoogleSearchPage;
 import io.loop.utilities.BrowserUtils;
 import io.loop.utilities.ConfigurationReader;
+import io.loop.utilities.DocuportConstance;
 import io.loop.utilities.Driver;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
@@ -41,7 +42,7 @@ public class GoogleSearchStepDefs {
     }
     @Then("user should be able to see {string} in the google title")
     public void user_should_be_able_to_see_search_in_the_google_title(String expectedTitle) {
-        WebDriverWait wait = new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(10));
+        WebDriverWait wait = new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(DocuportConstance.LARGE));
         wait.until(ExpectedConditions.titleIs(expectedTitle));
         String actual = Driver.getDriver().getTitle();
         assertEquals("Expected does NOT match actual", expectedTitle, actual);
@@ -68,7 +69,7 @@ public class GoogleSearchStepDefs {
 //        for (String item : items) {
 //            googleSearchPage.searchBox.clear();
 //            googleSearchPage.searchBox.sendKeys(item + Keys.ENTER);
-//            WebDriverWait wait = new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(10));
+//            WebDriverWait wait = new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(DocuportConstance.LARGE));
 //            wait.until(ExpectedConditions.titleIs(item + " - Google Search"));
 //            assertEquals("Expected does NOT match the actual", item + " - Google Search", Driver.getDriver().getTitle());
 //            BrowserUtils.takeScreenshot();
@@ -77,7 +78,7 @@ public class GoogleSearchStepDefs {
 //        items.forEach(p-> {
 //            googleSearchPage.searchBox.clear();
 //            googleSearchPage.searchBox.sendKeys(p + Keys.ENTER);
-//            WebDriverWait wait = new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(10));
+//            WebDriverWait wait = new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(DocuportConstance.LARGE));
 //            wait.until(ExpectedConditions.titleIs(p + " - Google Search"));
 //            assertEquals("Expected does NOT match the actual", p + " - Google Search", Driver.getDriver().getTitle());
 //            //BrowserUtils.takeScreenshot();
@@ -90,7 +91,7 @@ public class GoogleSearchStepDefs {
             System.out.println(item.get("items"));
             googleSearchPage.searchBox.clear();
             googleSearchPage.searchBox.sendKeys(item.get("items") + Keys.ENTER);
-            WebDriverWait wait = new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(10));
+            WebDriverWait wait = new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(DocuportConstance.LARGE));
             wait.until(ExpectedConditions.titleIs(item.get("items") + " - Google Search"));
             assertEquals("Expected does not match the actual", item.get("items") + " - Google Search", Driver.getDriver().getTitle());
             BrowserUtils.takeScreenshot();
