@@ -12,9 +12,12 @@ import org.junit.runner.RunWith;
         features = "src/test/resources/features",
         glue = "io/loop/step_definitions",
         dryRun = false,
-        tags = "@sampleDocuport",
+        tags = "@soft",
         monochrome = true
 )
 
 public class CukesRunner {
 }
+
+
+
