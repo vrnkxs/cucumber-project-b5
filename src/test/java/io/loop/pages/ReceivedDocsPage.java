@@ -3,12 +3,9 @@ package io.loop.pages;
 import io.loop.utilities.BrowserUtils;
 import io.loop.utilities.DocuportConstance;
 import io.loop.utilities.Driver;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-import java.util.ArrayList;
-import java.util.List;
 
 public class ReceivedDocsPage {
 
@@ -18,6 +15,9 @@ public class ReceivedDocsPage {
 
     @FindBy(xpath = "//span[@class='subtitle-2 text-none' and .='Search']")
     public WebElement searchButton;
+
+    @FindBy(xpath = "//button[@type='submit']")
+    public WebElement searchForInfo;
 
     @FindBy(xpath = "//label[.='Document name']/following-sibling::input")
     public WebElement documentName;
@@ -49,6 +49,12 @@ public class ReceivedDocsPage {
             default -> throw new IllegalArgumentException("No such button: " + button);
         }
     }
+    public void clickButton2(String button) {
+        switch(button.toLowerCase().trim()) {
+            case "search" -> BrowserUtils.waitForClickable(searchForInfo, DocuportConstance.LARGE).click();
+            default -> throw new IllegalArgumentException("No such button: " + button);
+        }
+    }
     public void insertField (String field, String input) throws InterruptedException {
         switch (field.toLowerCase().trim()) {
             case "document name" ->
@@ -70,7 +76,7 @@ public class ReceivedDocsPage {
                 }
             }
             case "upload date" -> {
-                Thread.sleep(3000);
+                //Thread.sleep(3000);
                 BrowserUtils.waitForClickable(uploadDate, DocuportConstance.LARGE).click();
                 BrowserUtils.waitForClickable(date30, DocuportConstance.LARGE).click();
             }
@@ -80,5 +86,8 @@ public class ReceivedDocsPage {
             }
             default -> throw new IllegalArgumentException("No such a field: " + field);
         }
+    }
+
+    public static class MyUploadsPage {
     }
 }

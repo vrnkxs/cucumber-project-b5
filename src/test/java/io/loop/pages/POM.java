@@ -11,6 +11,7 @@ public class POM {
     private ReceivedDocsPage receivedDocsPage;
     private LeftNavigatePage leftNavigatePage;
     private MyUploadsPage myUploadsPage;
+    private InvitationsPage invitationsPage;
 
     public LoginPage getLoginPage() {
         if(loginPage == null) {
@@ -59,5 +60,12 @@ public class POM {
             myUploadsPage = new MyUploadsPage();
         }
         return myUploadsPage;
+    }
+
+    public InvitationsPage getInvitationsPage() {
+        if(invitationsPage == null) {
+            invitationsPage = new InvitationsPage();
+        }
+        return invitationsPage;
     }
 }
