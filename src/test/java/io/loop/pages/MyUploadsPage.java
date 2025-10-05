@@ -19,6 +19,21 @@ public class MyUploadsPage {
     @FindBy(xpath = "//span[contains(text(), 'Upload file')]")
     public WebElement uploadFileButton;
 
+    @FindBy(xpath = "//span[contains(text(),' Upload ')]")
+    public WebElement uploadButton;
+
+    @FindBy(xpath = "//label[.='Service']/following-sibling::input[1]")
+    public WebElement serviceDropdown;
+
+    @FindBy(xpath = "//div[.='Bookkeeping' and @class='v-list-item__title']")
+    public WebElement bookkeepingOption;
+
+    @FindBy(xpath = "//div[@class='mb-3 col col-12']/span")
+    public WebElement docTypeOption;
+
+    @FindBy(xpath = "//div[@class='mb-3 col col-12']/span[.=' Q1 ']")
+    public WebElement quarterOption;
+
     public void clickButton(String button) {
         switch(button.toLowerCase().trim()) {
             case "upload documents" -> BrowserUtils.waitForClickable(uploadDocsButton, DocuportConstance.LARGE).click();
@@ -26,4 +41,5 @@ public class MyUploadsPage {
             default -> throw new IllegalArgumentException("No such button: " + button);
         }
     }
+
 }
