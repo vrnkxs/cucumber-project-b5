@@ -25,6 +25,15 @@ public class LoginPage {
     @FindBy (xpath = "//button[@type='submit']")
     public WebElement continueButton;
 
+    @FindBy (xpath = "//*[.=' Login ']")
+    public WebElement loginText;
+
+    @FindBy (xpath = "//img[@src='/img/logo.d7557277.svg']")
+    public WebElement docuportText;
+
+    @FindBy (xpath = "//h3[.='Choose account']")
+    public WebElement chooseAccountText;
+
     public void insertField (String field, String input) {
         switch (field.toLowerCase().trim()) {
             case "username" -> BrowserUtils.waitForVisibility(usernameInput, DocuportConstance.LARGE).sendKeys(input);
